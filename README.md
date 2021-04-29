@@ -3,9 +3,9 @@
 ## Usage
 
 ### Preparation
-* Make sure you have isntalled Pytorch at least ver. 1.3, and the torch2trt library
+* Make sure you have isntalled Pytorch (at least ver. 1.3), and the TensorRT (at least ver. 7.0) libraries:
 ```bash
-python -c "import torch; print('torch:', torch.__version__); print('CUDA available:', torch.cuda.is_available())"
+python -c "import torch, torch2trt; print('torch:', torch.__version__); print('tensorRT:',  torch2trt.trt_version()); print('CUDA available:', torch.cuda.is_available())"
 ```
 * Clone this repository
 ```console
