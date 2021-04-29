@@ -3,7 +3,7 @@
 ## Usage
 
 ### Preparation
-* Make sure you have isntalled Pytorch at least ver. 1.3
+* Make sure you have isntalled Pytorch at least ver. 1.3, and the torch2trt library
 ```bash
 python -c "import torch; print('torch:', torch.__version__); print('CUDA available:', torch.cuda.is_available())"
 ```
@@ -34,11 +34,9 @@ Elapsed Time: [32.87 s / 1000 iter]
 Speed Time: 32.87 ms / iter   FPS: 30.42
 ```
 ### Evaluate tensorRT models
-* Install the tensorRT library:
+* Set the Jetson Nano to the highest mode:
 ```bash
-git clone https://github.com/NVIDIA-AI-IOT/torch2trt
-cd torch2trt
-python setup.py install --plugins
+sudo nvpmodel -m 0
 ```
 * run the first DDRNet model with tensor RT (it should take sometime for model conversion)
 ```bash
