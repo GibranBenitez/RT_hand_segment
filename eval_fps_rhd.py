@@ -26,7 +26,7 @@ def compute_speed(args, model, input_size, device, iteration=1000):
         model(input)
 
     print('\n============Starting===========')
-    print('Model: {}, @{}x{} on: {}'.format(args.weights.split("/")[-1],input_size[2],input_size[3], device))
+    print('Model: {}, @{}x{} on {}'.format(args.weights.split("/")[-1],input_size[2],input_size[3], device))
     flops, params = get_model_complexity_info(model, (input_size[1],input_size[2],input_size[3]), as_strings=True, print_per_layer_stat=False)
     print('Flops:  ' + flops)
     print('Params: ' + params)
@@ -56,7 +56,7 @@ if __name__ == '__main__':
     parser.add_argument('--batch-size', type=int, default=1)
     parser.add_argument('--classes', type=int, default=14)
     parser.add_argument('--iter', type=int, default=1000)
-    parser.add_argument("--gpus", type=str, default="cpu", help="gpu ids (default: 0)")
+    parser.add_argument("--gpus", type=str, default="0", help="gpu ids (default: 0) | cpu")
     parser.add_argument("--alpha", default=2, nargs="?", type=int)
     parser.add_argument("--model", nargs="?", type=str,
         default="DDRNet",# FASSDNet, HardNet, DABNet, ENet, FastSCNN, DDRNet

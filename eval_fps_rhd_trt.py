@@ -53,7 +53,7 @@ if __name__ == '__main__':
     parser.add_argument("--gpus", type=str, default="0", help="gpu ids (default: 0)")
     parser.add_argument("--alpha", default=2, nargs="?", type=int)
     parser.add_argument("--model", nargs="?", type=str,
-        default="DABNet",# FASSDNet, HardNet, DABNet, ENet, FastSCNN, DDRNet
+        default="DDRNet",# FASSDNet, HardNet, DABNet, ENet, FastSCNN, DDRNet
         help="Model variation to use",
     )
     parser.add_argument(
@@ -102,5 +102,7 @@ if __name__ == '__main__':
         model = torch2trt(model, [x], fp16_mode=True)                
         torch.save(model.state_dict(), model_path)
         print("Done!")
+
+    args.weights = model_path
         
     compute_speed(args, model, (args.batch_size, args.num_channels, h, w), int(args.gpus), iteration=args.iter)
