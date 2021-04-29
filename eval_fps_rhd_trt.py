@@ -4,11 +4,9 @@ import torch.backends.cudnn as cudnn
 import os
 from ptsemseg.utils import convert_state_dict
 from argparse import ArgumentParser
-from torch2trt import TRTModule
+# from torch2trt import TRTModule
 from torch2trt import torch2trt
-# from ptsemseg.models.FASSDNet import FASSDNet
-# from ptsemseg.models.FASSDNetL1 import FASSDNet
-# from ptsemseg.models.FASSDNetL2 import FASSDNet
+
 
 def compute_speed(args, model, input_size, device, iteration=1000):
     torch.cuda.set_device(device)
@@ -88,8 +86,8 @@ if __name__ == '__main__':
     model_path = "./weights_hand/" + args.weights.split("/")[-1][:-4] + "_trt_" + str(h) + "x" + str(w) + "_fp16.pth"    
     if os.path.isfile(model_path):
         print("Loading weights from {}".format(model_path))
-        model = TRTModule()
-        model.load_state_dict(torch.load(model_path))
+        # model = TRTModule()
+        # model.load_state_dict(torch.load(model_path))
     else:        
         print("No existing model found. Converting and saving TRT model...")
         model_path_non_trt = args.weights
