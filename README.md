@@ -13,7 +13,7 @@ git clone https://github.com/GibranBenitez/RT_hand_segment
 ```
 * Install required libraries
 ```bash
-pip install cpuinfo
+pip install py-cpuinfo
 pip install ptflops
 ```
 ### Check full model speed
