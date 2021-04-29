@@ -4,6 +4,9 @@
 
 ### Preparation
 * Make sure you have isntalled Pytorch at least ver. 1.3
+```bash
+python -c "import torch; print('torch:', torch.__version__); print('CUDA available:', torch.cuda.is_available())"
+```
 * Clone this repository
 ```console
 git clone https://github.com/GibranBenitez/RT_hand_segment
